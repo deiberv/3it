@@ -1,7 +1,7 @@
 # statisticsdemo 
 
 
-## statisticsdemo (FrontEnd)
+## statisticsdemo (FrontEnd) webapp
 
 Este proyecto se generó con [Angular CLI](https://github.com/angular/angular-cli) versión 13.3.1.
 
@@ -17,7 +17,7 @@ Ejecute `ng serve` para un servidor de desarrollo. Navegue a `http://localhost:4
 
 
 
-# statisticsdemo (Backend)
+# statisticsdemo (Backend) surveys
 Este proyecto ha sido generado usando spring, se requiere java 11 para su ejecucion.
 
 ## Development
