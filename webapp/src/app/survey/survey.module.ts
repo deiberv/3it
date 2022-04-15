@@ -5,8 +5,6 @@ import { SurveyRoutingModule } from './survey-routing.module';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     SurveyComponent

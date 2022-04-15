@@ -22,7 +22,7 @@ export class SurveyComponent implements OnInit {
   constructor(private service: SurveyService, private formBuilder: FormBuilder) { 
     this.createForm = this.formBuilder.group({
       style: ['', Validators.required],
-      email: ['', Validators.required]
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 
@@ -55,7 +55,7 @@ export class SurveyComponent implements OnInit {
         this.createForm.reset();
       },
       error: err => {
-        this._alert.next({"type":"danger", "message": `Error registrando la encuenta: ${err.message}`, "show": true});
+        this._alert.next({"type":"danger", "message": `Error registrando la encuenta: ${err.error.message}`, "show": true});
       }
     });
   }

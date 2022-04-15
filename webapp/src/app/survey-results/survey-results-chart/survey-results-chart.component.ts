@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Chart, ChartConfiguration } from 'chart.js';
-import { ChartSerie } from 'src/app/models/chart-serie';
+import { ChartSerieValue } from 'src/app/models/chart-serie-value';
 import { SurveyResultResponse } from 'src/app/models/survey-result-response';
 
 @Component({
@@ -10,46 +9,29 @@ import { SurveyResultResponse } from 'src/app/models/survey-result-response';
 })
 export class SurveyResultsChartComponent implements OnInit {
 
-  @Input() results:SurveyResultResponse[] | undefined;
-  
-  multi: any[];
-  view: any[] = [700, 400];
-
+  @Input() results:SurveyResultResponse[] = [];
+  single: ChartSerieValue[] = [];
+  view: any[number] = [700, 400];
   // options
-  showXAxis: boolean = true;
-  showYAxis: boolean = true;
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Country';
-  showYAxisLabel: boolean = true;
-  yAxisLabel: string = 'Population';
-  legendTitle: string = 'Years';
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showXAxisLabel = true;
+  xAxisLabel = 'Estilo musical';
+  showYAxisLabel = true;
+  yAxisLabel = 'Votos';
 
-  colorScheme = {
-    domain: ['#5AA454', '#C7B42C', '#AAAAAA']
-  };
-
-  constructor() { 
-    this.multi = [];
+  constructor(){
   }
 
   ngOnInit(): void {
-
-    this.initChart();
-  }
-
-  initChart(): void
-  {
-    this.multi = [
-      {
-        "name": "Germany",
-        "value": 8940000
-      },
-      {
-        "name": "USA",
-        "value": 5000000
-      }
-    ];
+    //Se asignan los resultados para ser graficados
+    this.results.forEach( survey => {
+      this.single.push({
+        "name": survey.name,
+        "value": survey.total
+      });
+    });
   }
 }
