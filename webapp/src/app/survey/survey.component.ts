@@ -38,8 +38,14 @@ export class SurveyComponent implements OnInit {
   }
 
   getStyles(): void {
-    this.service.getStyles().subscribe( response => {
+    /*this.service.getStyles().subscribe( response => {
       this.styles = response;
+    });*/
+    this.service.getStyles().subscribe({
+      next: response => { this.styles = response; },
+      error: err => {
+        this._alert.next({"type":"danger", "message": `Error obteniendo listado de estilos musicales: ${err}`, "show": true});
+      }
     });
   }
 

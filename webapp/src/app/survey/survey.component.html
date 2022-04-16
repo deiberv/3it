@@ -1,8 +1,9 @@
 
 <div class="container-fluid page-survey">
   <div class="abs-center">
-    <div class="form-container">
-      <h1 class="text-center mb-5">ENCUENTA</h1>
+    <div class="form-container container">
+      <ngb-alert #resultAlert class="mb-3" *ngIf="alert.show" [type]="alert.type">{{alert.message}}</ngb-alert>
+      <h1 class="text-center mb-3 mt-3">ENCUENTA</h1>
       <form [formGroup]="createForm" (ngSubmit)="register()">
         <div class="form-group mb-3">
           <label for="style" class="text-center">ESTILO MUSICAL</label>
@@ -28,7 +29,6 @@
           <button type="button" class="btn btn-primary btn-block"  (click)="register()" [disabled]="createForm.invalid">ENVIAR</button>
           <a routerLink="/" class="btn-link back">Volver</a>
         </div>
-        <ngb-alert #resultAlert class="mt-3" *ngIf="alert.show" [type]="alert.type">{{alert.message}}</ngb-alert>
       </form>
     </div>
   </div>
